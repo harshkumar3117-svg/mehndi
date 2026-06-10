@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
+import PricingSection from './components/PricingSection';
 import AcademySection from './components/AcademySection';
 import GallerySection from './components/GallerySection';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -16,6 +17,7 @@ export default function App() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <PricingSection />
       <AcademySection />
       <GallerySection />
       <TestimonialsSection />
@@ -25,3 +27,4 @@ export default function App() {
     </>
   );
 }
+

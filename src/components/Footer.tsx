@@ -2,6 +2,7 @@ const QUICK_LINKS = [
   { label: 'Home', id: 'home' },
   { label: 'About Me', id: 'about' },
   { label: 'Services', id: 'services' },
+  { label: 'Pricing', id: 'pricing' },
   { label: 'Academy', id: 'academy' },
   { label: 'Gallery', id: 'gallery' },
   { label: 'Contact Us', id: 'contact' },
@@ -9,11 +10,12 @@ const QUICK_LINKS = [
 
 const SERVICES = [
   'Bridal Mehndi',
-  'Sider & Family Mehndi',
+  'Normal & Family Mehndi',
+  'Engagement Mehndi',
+  'Baby Shower Mehndi',
   'Arabic Designs',
   'Figure Work',
   'Mehndi Courses',
-  'Online Batches',
 ];
 
 const scrollTo = (id: string) =>
