@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="section-container">
         <div className="footer-grid">
           <div>
-            <span className="footer-brand-name">Riya's Mehndi</span>
+            <span className="footer-brand-name">Rina's Mehndi</span>
             <p className="footer-brand-desc">
               Premium Bridal Mehndi Services & Certified Mehndi Academy. Creating timeless art
               through the ancient tradition of henna since 2018. Based in Ahmedabad, serving across India.
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p className="footer-copy">© 2026 Riya's Mehndi Studio & Academy. All Rights Reserved.</p>
+          <p className="footer-copy">© 2026 Rina's Mehndi Studio & Academy. All Rights Reserved.</p>
           <p className="footer-copy">Crafted with ♥ for the love of henna art</p>
         </div>
       </div>

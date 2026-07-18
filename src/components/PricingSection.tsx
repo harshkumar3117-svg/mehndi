@@ -1,4 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
+import BookingModal, { type BookingInfo } from './BookingModal';
+
+/* ── Price parser ─────────────────────────────────────── */
+/**
+ * Converts a price string like "₹4,000" or "₹1,800 – ₹2,000" to a number.
+ * For ranges, takes the lower bound.
+ */
+function parsePrice(priceStr: string): number {
+  const nums = priceStr.replace(/[₹,]/g, '').split(/[–—-]/).map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n));
+  return nums.length > 0 ? nums[0] : 0;
+}
 
 /* ── Data from PDF ────────────────────────────────────────── */
 
@@ -179,6 +190,12 @@ export default function PricingSection() {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   // key changes on tab switch to force remount → triggers CSS entry animation
   const [tabKey, setTabKey] = useState(0);
+  const [booking, setBooking] = useState<BookingInfo | null>(null);
+
+  /** Opens the Razorpay advance booking modal for a given package */
+  const openBooking = (packageName: string, priceStr: string) => {
+    setBooking({ packageName, priceStr, fullPrice: parsePrice(priceStr) });
+  };
 
   // Only animate the header on scroll-in; cards are always visible
   useEffect(() => {
@@ -210,6 +227,7 @@ export default function PricingSection() {
 
   return (
     <section className="pricing-section" id="pricing" ref={sectionRef}>
+      {booking && <BookingModal booking={booking} onClose={() => setBooking(null)} />}
       <div className="pricing-bg-pattern" />
 
       <div className="section-container">
@@ -292,7 +310,7 @@ export default function PricingSection() {
                     <button
                       className="btn-gold"
                       style={{ width: '100%', justifyContent: 'center', marginTop: '1rem' }}
-                      onClick={e => { e.stopPropagation(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                      onClick={e => { e.stopPropagation(); openBooking(`${pkg.name} – ${pkg.badge}`, pkg.price); }}
                     >
                       Book This Package →
                     </button>
@@ -320,7 +338,7 @@ export default function PricingSection() {
                     <button
                       className="btn-green"
                       style={{ width: '100%', justifyContent: 'center', marginTop: '0.75rem', fontSize: '0.8rem' }}
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => openBooking(tier.category, tier.range)}
                     >
                       Book Now →
                     </button>
@@ -348,7 +366,7 @@ export default function PricingSection() {
                     <button
                       className="btn-green"
                       style={{ width: '100%', justifyContent: 'center', marginTop: '0.75rem', fontSize: '0.8rem' }}
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => openBooking(tier.category, tier.range)}
                     >
                       Book Now →
                     </button>
@@ -376,7 +394,7 @@ export default function PricingSection() {
                     <button
                       className="btn-green"
                       style={{ width: '100%', justifyContent: 'center', marginTop: '0.75rem', fontSize: '0.8rem' }}
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => openBooking(tier.category, tier.range)}
                     >
                       Book Now →
                     </button>
@@ -394,7 +412,7 @@ export default function PricingSection() {
             <p className="pricing-cta-sub">WhatsApp us and we'll help you choose the perfect design!</p>
           </div>
           <a
-            href="https://wa.me/917202076904?text=Hello%20JK%20Mehndi%20Studio%2C%20I%20want%20to%20know%20more%20about%20your%20packages"
+            href="https://wa.me/919723728013?text=Hello%20Rina%20Mehndi%20Studio%2C%20I%20want%20to%20know%20more%20about%20your%20packages"
             target="_blank" rel="noopener noreferrer"
             className="btn-gold"
           >

@@ -64,9 +64,9 @@ export default function HeroSection() {
 
         <div className="hero-stats fade-in-up delay-4">
           {[
-            { num: '1000+', label: 'Happy Brides' },
+            { num: '500+', label: 'Happy Brides' },
             { num: '8+', label: 'Years of Excellence' },
-            { num: '200+', label: 'Students Trained' },
+            { num: '100+', label: 'Students Trained' },
             { num: '100%', label: 'Satisfaction Rate' },
           ].map(s => (
             <div key={s.label} className="hero-stat glass">

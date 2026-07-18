@@ -21,7 +21,7 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Hi Riya! I'd like to book your services.%0AName: ${form.name}%0APhone: ${form.phone}%0AService: ${form.service}%0AMessage: ${form.message}`;
+    const msg = `Hi Rina! I'd like to book your services.%0AName: ${form.name}%0APhone: ${form.phone}%0AService: ${form.service}%0AMessage: ${form.message}`;
     window.open(`https://wa.me/919723728013?text=${msg}`, '_blank');
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);

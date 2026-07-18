@@ -1,5 +1,5 @@
 export default function WhatsAppFloat() {
-  const href = 'https://wa.me/919723728013?text=Hi%20Riya!%20I%20found%20your%20website%20and%20would%20like%20to%20enquire%20about%20your%20mehndi%20services.';
+  const href = 'https://wa.me/919723728013?text=Hi%20Rina!%20I%20found%20your%20website%20and%20would%20like%20to%20enquire%20about%20your%20mehndi%20services.';
 
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="whatsapp-float" aria-label="Chat on WhatsApp">

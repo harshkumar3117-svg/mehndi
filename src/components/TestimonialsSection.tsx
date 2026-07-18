@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 const TESTIMONIALS = [
   {
     text: 'My bridal mehndi was absolutely breathtaking! The figures were exactly like our love story — every detail was perfect. The color lasted so dark for weeks. Anjali is truly an artist!',
-    name: 'Riya Sharma',
+    name: 'Rina Sharma',
     role: 'Bride, Delhi',
     initials: 'RS',
   },

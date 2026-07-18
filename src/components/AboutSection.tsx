@@ -24,7 +24,7 @@ export default function AboutSection() {
         <div className="about-grid">
           <div className="about-image-wrap fade-in-left">
             <div className="about-image-frame">
-              <img src="/artist-mehndi.webp" alt="Riya – Mehndi Artist" loading="lazy" />
+              <img src="/artist-mehndi.webp" alt="Rina – Mehndi Artist" loading="lazy" />
             </div>
             <div className="about-badge">
               <span className="about-badge-num">8+</span>
@@ -40,7 +40,7 @@ export default function AboutSection() {
             </h2>
             <div className="gold-divider" />
             <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.85', marginTop: '1rem', marginBottom: '1.5rem' }}>
-              Hi, I'm <strong style={{ color: 'var(--green-dark)' }}>Riya!</strong> With over 8 years of experience,
+              Hi, I'm <strong style={{ color: 'var(--green-dark)' }}>Rina!</strong> With over 8 years of experience,
               I specialize in creating intricate, custom bridal stories through mehndi. From traditional
               Rajasthani designs to modern minimalist patterns, I bring your dream henna to life with love
               and artistry. I'm also dedicated to helping passionate artists become professionals through

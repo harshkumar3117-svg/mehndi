@@ -29,7 +29,7 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar-inner">
         <button className="navbar-brand" onClick={() => scrollTo('home')}>
-          <span className="brand-name">Riya's</span>
+          <span className="brand-name">Rina's</span>
           <span className="brand-sub">Mehndi Studio</span>
         </button>
 

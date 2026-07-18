@@ -9,15 +9,6 @@ const PERKS = [
   { icon: '♾', text: 'Lifetime Mentorship Support' },
 ];
 
-const FEATURES = [
-  'Rajasthani Bridal Designs',
-  'Arabic & Indo-Arabic Patterns',
-  'Figure Work Mastery',
-  'Speed & Finishing Techniques',
-  'Client Handling Skills',
-  'Portfolio Building',
-];
-
 export default function AcademySection() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -25,7 +16,7 @@ export default function AcademySection() {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => {
-          e.target.querySelectorAll('.fade-in-left, .fade-in-right')
+          e.target.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up, .masterclass-card')
             .forEach(el => el.classList.toggle('visible', e.isIntersecting));
         });
       },
@@ -36,7 +27,7 @@ export default function AcademySection() {
   }, []);
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/919723728013?text=Hi%20Riya%21%20I%27m%20interested%20in%20the%20Mehndi%20Course%20batch.%20Please%20share%20more%20details.', '_blank');
+    window.open('https://wa.me/919723728013?text=Hi%20Rina%21%20I%27m%20interested%20in%20the%20Mehndi%20Course%20batch.%20Please%20share%20more%20details.', '_blank');
   };
 
   return (
@@ -44,6 +35,7 @@ export default function AcademySection() {
       <div className="academy-bg-pattern" />
       <div className="section-container">
         <div className="academy-grid">
+          {/* Left Column: Intro & Perks */}
           <div className="fade-in-left">
             <span className="section-tag" style={{ color: 'var(--gold-light)' }}>Our Academy</span>
             <h2 className="academy-heading">
@@ -54,6 +46,7 @@ export default function AcademySection() {
               From complete beginners to experienced artists — our structured curriculum ensures
               you master every technique with confidence.
             </p>
+            
             <div className="academy-perks">
               {PERKS.map(p => (
                 <div key={p.text} className="academy-perk">
@@ -66,42 +59,82 @@ export default function AcademySection() {
             </div>
           </div>
 
+          {/* Right Column: Masterclass Card */}
           <div className="fade-in-right">
-            <div className="academy-glass">
-              <div className="batch-label">
-                <span>🔥</span>
-                <span>New Batch Enrolling Now</span>
+            <div className="masterclass-card">
+              <div className="masterclass-header">
+                <div className="masterclass-badge">🏫 OFFLINE ONLY</div>
+                <h3 className="masterclass-title">
+                  Basic to Advanced<br /><span>Mehandi Master Class</span>
+                </h3>
               </div>
-              <h3 className="batch-title">
-                Masterclass in Bridal Mehndi<br />
-                <span style={{ color: 'var(--gold-light)', fontSize: '0.85em' }}>(Offline + Online Available)</span>
-              </h3>
 
-              <div className="batch-features">
-                {FEATURES.map(f => (
-                  <div key={f} className="batch-feature">
-                    <span className="batch-dot" />
-                    <span>{f}</span>
+              <div className="masterclass-info-grid">
+                <div className="masterclass-info-item">
+                  <span className="mc-icon">📅</span>
+                  <div>
+                    <p className="mc-label">Starts</p>
+                    <p className="mc-value">20th Mar '26</p>
                   </div>
-                ))}
+                </div>
+                <div className="masterclass-info-item">
+                  <span className="mc-icon">⏱️</span>
+                  <div>
+                    <p className="mc-label">Duration</p>
+                    <p className="mc-value">30-35 Days</p>
+                  </div>
+                </div>
+                <div className="masterclass-info-item">
+                  <span className="mc-icon">📍</span>
+                  <div>
+                    <p className="mc-label">Location</p>
+                    <p className="mc-value">Ahmedabad</p>
+                  </div>
+                </div>
+                <div className="masterclass-info-item">
+                  <span className="mc-icon">👥</span>
+                  <div>
+                    <p className="mc-label">Seats</p>
+                    <p className="mc-value">Only 50</p>
+                  </div>
+                </div>
               </div>
 
-              <div className="batch-date">
-                <span>📅</span>
-                <span>Next Batch Starts: <strong>15th July 2026</strong></span>
+              <div className="masterclass-batches">
+                <div className="mc-batch">
+                  <span className="mc-batch-icon">🌅</span>
+                  <div>
+                    <p className="mc-batch-name">Morning</p>
+                    <p className="mc-batch-time">11 AM - 1 PM</p>
+                  </div>
+                </div>
+                <div className="mc-batch">
+                  <span className="mc-batch-icon">🌇</span>
+                  <div>
+                    <p className="mc-batch-name">Afternoon</p>
+                    <p className="mc-batch-time">2 PM - 4 PM</p>
+                  </div>
+                </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <button className="btn-gold" onClick={openWhatsApp}>
-                  📱 Enquire on WhatsApp
-                </button>
-                <button
-                  className="btn-outline"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Contact Us
-                </button>
+              <div className="masterclass-features-list">
+                <div className="mc-feature">✅ Offline material</div>
+                <div className="mc-feature">✅ 5+ Yrs Experience</div>
+                <div className="mc-feature">✅ Course Certificate</div>
+                <div className="mc-feature">✅ Free Material Kit</div>
               </div>
+
+              <div className="masterclass-fees">
+                <div className="mc-fee-row">
+                  <span className="mc-fee-original">₹12,000</span>
+                  <span className="mc-fee-discount-badge">50% OFF</span>
+                </div>
+                <p className="mc-fee-final">₹5,999/- Only</p>
+              </div>
+
+              <button className="btn-gold masterclass-cta" onClick={openWhatsApp}>
+                📱 Book Now / Apply Now
+              </button>
             </div>
           </div>
         </div>
