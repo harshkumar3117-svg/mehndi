@@ -55,8 +55,6 @@ export default function BookingModal({ booking, onClose }: Props) {
   const payableAmount = isFullPayment
     ? booking.fullPrice
     : Math.ceil(booking.fullPrice * 0.1); // 10% advance
-  // Keep advanceAmount alias for commented-out Razorpay code compatibility
-  const advanceAmount = payableAmount;
 
   // Close on overlay click
   const handleOverlayClick = (e: React.MouseEvent) => {
