@@ -11,8 +11,6 @@ export default function HeroSection() {
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-
-    // Trigger hero animations on mount
     const timer = setTimeout(() => {
       contentRef.current?.querySelectorAll('.fade-in-up').forEach(el => {
         el.classList.add('visible');

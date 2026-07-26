@@ -27,7 +27,7 @@ export default function AboutSection() {
               <img src="/artist-mehndi.webp" alt="Rina – Mehndi Artist" loading="lazy" />
             </div>
             <div className="about-badge">
-              <span className="about-badge-num">8+</span>
+              <span className="about-badge-num">5+</span>
               <span className="about-badge-text">Years of Excellence</span>
             </div>
           </div>

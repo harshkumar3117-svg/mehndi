@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 
 const PERKS = [
   { icon: '📜', text: 'Government Recognized Certificate' },
-  { icon: '🖐', text: 'Live Practice on Models' },
   { icon: '📦', text: 'Professional Starter Kit Included' },
   { icon: '📱', text: 'Social Media Marketing Tips' },
   { icon: '💼', text: 'Business Setup Guidance' },
@@ -74,7 +73,7 @@ export default function AcademySection() {
                   <span className="mc-icon">📅</span>
                   <div>
                     <p className="mc-label">Starts</p>
-                    <p className="mc-value">20th Mar '26</p>
+                    <p className="mc-value">20th Nov '26</p>
                   </div>
                 </div>
                 <div className="masterclass-info-item">

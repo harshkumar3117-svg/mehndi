@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-/* ── Types ────────────────────────────────────────────── */
 export interface BookingInfo {
   packageName: string;
-  /** Full price string, e.g. "₹4,000" or "₹1,800 – ₹2,000" */
   priceStr: string;
-  /** Numeric full price in rupees */
   fullPrice: number;
 }
 
@@ -13,16 +10,11 @@ interface Props {
   booking: BookingInfo;
   onClose: () => void;
 }
-
-/* ── Razorpay window type ─────────────────────────────── */
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Razorpay: any;
   }
 }
-
-/* ── Helpers ──────────────────────────────────────────── */
 function loadRazorpayScript(): Promise<boolean> {
   return new Promise(resolve => {
     if (document.getElementById('razorpay-script')) {
@@ -37,8 +29,6 @@ function loadRazorpayScript(): Promise<boolean> {
     document.body.appendChild(script);
   });
 }
-
-/* ── Component ────────────────────────────────────────── */
 export default function BookingModal({ booking, onClose }: Props) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [name, setName] = useState('');
@@ -48,18 +38,14 @@ export default function BookingModal({ booking, onClose }: Props) {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
-  // Payment logic: >₹1000 → 10% advance | ≤₹1000 → full amount
   const isFullPayment = booking.fullPrice <= 1000;
   const payableAmount = isFullPayment
     ? booking.fullPrice
-    : Math.ceil(booking.fullPrice * 0.1); // 10% advance
+    : Math.ceil(booking.fullPrice * 0.1); 
 
-  // Close on overlay click
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === overlayRef.current) onClose();
   };
-
-  // Prevent background scroll
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = ''; };
@@ -139,7 +125,6 @@ export default function BookingModal({ booking, onClose }: Props) {
             </button>
           </div>
         ) : (
-          /* ── Form state ── */
           <>
             <div className="booking-modal-header">
               <span className="booking-modal-tag">{isFullPayment ? 'Full Payment' : 'Advance Booking'}</span>

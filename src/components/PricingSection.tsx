@@ -1,17 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import BookingModal, { type BookingInfo } from './BookingModal';
 
-/* ── Price parser ─────────────────────────────────────── */
-/**
- * Converts a price string like "₹4,000" or "₹1,800 – ₹2,000" to a number.
- * For ranges, takes the lower bound.
- */
 function parsePrice(priceStr: string): number {
   const nums = priceStr.replace(/[₹,]/g, '').split(/[–—-]/).map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n));
   return nums.length > 0 ? nums[0] : 0;
 }
-
-/* ── Data from PDF ────────────────────────────────────────── */
 
 const BRIDAL_PACKAGES = [
   {
@@ -188,16 +181,14 @@ export default function PricingSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeTab, setActiveTab] = useState<Tab>('bridal');
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  // key changes on tab switch to force remount → triggers CSS entry animation
+
   const [tabKey, setTabKey] = useState(0);
   const [booking, setBooking] = useState<BookingInfo | null>(null);
 
-  /** Opens the Razorpay advance booking modal for a given package */
   const openBooking = (packageName: string, priceStr: string) => {
     setBooking({ packageName, priceStr, fullPrice: parsePrice(priceStr) });
   };
 
-  // Only animate the header on scroll-in; cards are always visible
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -215,7 +206,7 @@ export default function PricingSection() {
   const handleTabChange = (tab: Tab) => {
     setActiveTab(tab);
     setSelectedCard(null);
-    setTabKey(k => k + 1); // force remount → re-triggers the CSS entry animation
+    setTabKey(k => k + 1); 
   };
 
   const tabs: { key: Tab; label: string; icon: string }[] = [
@@ -231,7 +222,6 @@ export default function PricingSection() {
       <div className="pricing-bg-pattern" />
 
       <div className="section-container">
-        {/* Header */}
         <div style={{ textAlign: 'center' }} className="fade-in-up pricing-header-fade">
           <span className="section-tag">Packages & Pricing</span>
           <h2 className="section-heading" style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)' }}>
@@ -251,7 +241,6 @@ export default function PricingSection() {
           </p>
         </div>
 
-        {/* Tab navigation */}
         <div className="pricing-tabs">
           {tabs.map(t => (
             <button
@@ -264,8 +253,6 @@ export default function PricingSection() {
             </button>
           ))}
         </div>
-
-        {/* ── BRIDAL PACKAGES ── */}
         {activeTab === 'bridal' && (
           <div key={tabKey} className="tab-content-enter">
             <div className="bridal-packages-grid">
@@ -321,7 +308,6 @@ export default function PricingSection() {
           </div>
         )}
 
-        {/* ── NORMAL / FAMILY PACKAGES ── */}
         {activeTab === 'normal' && (
           <div key={tabKey} className="tab-content-enter">
 
@@ -349,7 +335,6 @@ export default function PricingSection() {
           </div>
         )}
 
-        {/* ── ENGAGEMENT PACKAGES ── */}
         {activeTab === 'engagement' && (
           <div key={tabKey} className="tab-content-enter">
 
@@ -377,7 +362,6 @@ export default function PricingSection() {
           </div>
         )}
 
-        {/* ── BABY SHOWER PACKAGES ── */}
         {activeTab === 'babyshower' && (
           <div key={tabKey} className="tab-content-enter">
 
@@ -405,7 +389,6 @@ export default function PricingSection() {
           </div>
         )}
 
-        {/* CTA bottom */}
         <div className="pricing-cta-bar">
           <div>
             <p className="pricing-cta-text">Not sure which package is right for you?</p>
