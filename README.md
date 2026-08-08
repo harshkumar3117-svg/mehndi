@@ -1,73 +1,133 @@
-# React + TypeScript + Vite
+# 🌿 Rina's Mehndi Studio & Academy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully-responsive single-page website for *Rina's Mehndi Studio & Academy* — a professional bridal mehndi service and training academy based in Ahmedabad, India.
 
-Currently, two official plugins are available:
+Built with *React 19 + TypeScript + Vite*, styled with *Tailwind CSS v4*, and deployed as a static web app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Tech | Purpose |
+|------|
+| React |  UI Framework |
+| TypeScript |  Type Safety |
+| Vite |Build Tool / Dev Server |
+| Tailwind CSS | Utility-first Styling |
+| Porsche Design System | UI Component Library |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+mehndi/
+├── public/
+│   ├── hero-bridal-mehndi.webp   # Hero background image
+│   └── pdf-images/               # Mehndi design images for pricing cards
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── ServicesSection.tsx
+│   │   ├── PricingSection.tsx    # Tabbed pricing + BookingModal integration
+│   │   ├── BookingModal.tsx      # Booking form modal with Razorpay support
+│   │   ├── AcademySection.tsx
+│   │   ├── GallerySection.tsx
+│   │   ├── TestimonialsSection.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── Footer.tsx
+│   │   └── WhatsAppFloat.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css                 # All custom CSS (animations, variables, components)
+├── index.html
+├── package.json
+├── vite.config.ts
+└── tsconfig.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js v18 or higher
+- npm
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone <your-repo-url>
+cd mehndi
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment variables
+cp .env.example .env
+# Edit .env and fill in your values
 ```
+
+### Environment Variables
+
+Create a `.env` file based on `.env.example`:
+
+```env
+VITE_RAZORPAY_KEY_ID=your_razorpay_key_here
+```
+
+### Development
+
+```bash
+npm run dev
+```
+Opens at `http://localhost:5173`
+---
+
+## 💰 Pricing Overview
+
+### Bridal Mehndi Packages
+
+| Package | Price | Coverage |
+|---|---|---|
+| Basic Bridal | ₹4,000 | Elbow + Ankle (both sides) |
+| Classic Bridal | ₹8,000 | Elbow + Ankle + Portraits |
+| Premium Bridal | ₹10,000 | Ganesha, Shlok, Couple Figures |
+| Royal Bridal | ₹15,000 | Fully Custom + Maximum Coverage |
+
+### Other Services
+
+- **Normal & Family Mehndi** — ₹300 to ₹2,000 (both hands)
+- **Engagement Mehndi** — ₹1,500 to ₹2,500 (both hands)
+- **Baby Shower Mehndi** — ₹1,500 to ₹3,000 (both hands)
+
+> 📅 Advance booking & payment compulsory. Advance payment is non-refundable.
+
+---
+
+## 🏫 Academy — Mehndi Masterclass
+
+| Detail | Info |
+|---|---|
+| Mode | Offline Only |
+| Location | Ahmedabad |
+| Duration | 30–35 Days |
+| Batches | Morning (11AM–1PM) / Afternoon (2PM–4PM) |
+| Seats | Only 50 |
+| Fee | ~~₹12,000~~ **₹5,999** (50% OFF) |
+
+**Includes:** Government Certificate · Starter Kit · Social Media Tips · Lifetime Mentorship
+
+---
+
+## 📞 Contact
+
+- **WhatsApp / Call:** +91 9723728013
+- **Location:** Ahmedabad, India (Home & Venue Service Available)
+- **Hours:** Mon – Sun: 9:00 AM – 8:00 PM
+
+ 
